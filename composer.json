@@ -6,5 +6,7 @@
             "email": "sert.mikayil@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "fzaninotto/faker": "^1.8"
+    }
 }
