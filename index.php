@@ -23,12 +23,14 @@ $faker = Faker\Factory::create();
             <!-- list container -->
             <div class="list">
                 <?php for ($i = 0; $i < 30; $i++): ?>
-                    <div class="item" data-lng="<?= $faker->longitude ?>" data-lat="<?= $faker->latitude ?>" data-name="<?= $faker->name ?>">
+                    <div class="item js-item" data-lng="<?= $faker->longitude ?>" data-lat="<?= $faker->latitude ?>" data-name="<?= $faker->name ?>">
                         <?= $faker->name ?>
                     </div>
                 <?php endfor; ?>
             </div>
         </div>
+        <script src="./assets/js/script.min.js"></script>
+        <script src="./assets/js/polyfill.js"></script>
         <script src="./assets/js/app.js"></script>
     </body>
 </html>
