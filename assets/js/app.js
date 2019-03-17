@@ -2,11 +2,18 @@ const $map = document.getElementById('map')
 
 class GoogleMap {
 
+    /**
+     * Constructor of GoogleMap.
+     */
     constructor () {
         this.map = null
         this.bounds = null
     }
 
+    /**
+     * Load the google map in element.
+     * @param { HTMLElement } element 
+     */
     async loadMap (element) {
         return new Promise((resolve, reject) => {
             $script('https://maps.googleapis.com/maps/api/js', () => {
@@ -17,6 +24,12 @@ class GoogleMap {
         })
     }
 
+    /**
+     * Add a new marker in map.
+     * @param { string } lat 
+     * @param { string } lng 
+     * @param { string } name 
+     */
     addMarker (lat, lng, name) {
         let LatLng = new google.maps.LatLng(lat, lng)
 
@@ -28,6 +41,9 @@ class GoogleMap {
         this.bounds.extend(LatLng)
     }
 
+    /**
+     * Center the map.
+     */
     centerMap () {
         this.map.panToBounds(this.bounds)
         this.map.fitBounds(this.bounds)
