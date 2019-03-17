@@ -29,5 +29,6 @@ $faker = Faker\Factory::create();
                 <?php endfor; ?>
             </div>
         </div>
+        <script src="./assets/js/app.js"></script>
     </body>
 </html>
