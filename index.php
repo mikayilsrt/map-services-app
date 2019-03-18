@@ -24,7 +24,8 @@ $faker = Faker\Factory::create();
             <div class="list">
                 <?php for ($i = 0; $i < 30; $i++): ?>
                     <div class="item js-item" data-lng="<?= $faker->longitude ?>" data-lat="<?= $faker->latitude ?>" data-name="<?= $faker->name ?>">
-                        <?= $faker->name ?>
+                        <h3><?= $faker->name ?></h3>
+                        <p><?= $faker->address ?></p>
                     </div>
                 <?php endfor; ?>
             </div>
