@@ -16,7 +16,8 @@ class GoogleMap {
      */
     async loadMap (element) {
         return new Promise((resolve, reject) => {
-            $script('https://maps.googleapis.com/maps/api/js', () => {
+            let key = "AIzaSyBGd_dSiaAEDVv3WoJLbM2clVgLmGLhRz8"
+            $script('https://maps.googleapis.com/maps/api/js?key=' + key, () => {
                 this.map = new google.maps.Map(element)
                 this.bounds = new google.maps.LatLngBounds()
                 resolve()
