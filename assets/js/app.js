@@ -36,7 +36,7 @@ class GoogleMap {
         let marker = new google.maps.Marker({
             position: LatLng,
             map: this.map,
-            title: name
+            label: name
         })
         this.bounds.extend(LatLng)
     }
@@ -54,10 +54,8 @@ class GoogleMap {
      * @param { JSON } latLng 
      */
     centerOnMarker (latLng) {
-        new google.maps.Map($map, {
-            zoom: 4,
-            center: latLng
-        })
+        this.map.setCenter(latLng)
+        this.map.setZoom(4)
     }
 
 }
