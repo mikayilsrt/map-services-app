@@ -39,6 +39,25 @@ class GoogleMap {
             label: name
         })
         this.bounds.extend(LatLng)
+
+        marker.addListener('click', (e) => {
+            // select all items.
+            let elements = document.querySelectorAll('.js-item')
+
+            for (var i = 0; i < elements.length; i++) {
+                let element = elements[i]
+                // remove active class.
+                if (element.classList[2] === 'active') {
+                    element.classList.remove('active')
+                }
+                // add active class.
+                if (element.dataset.name === marker.label) {
+                    element.classList.add('active')
+                }
+            }
+            // zoom the marker after click.
+            this.zoomMarker(marker)
+        })
     }
 
     /**
@@ -47,6 +66,16 @@ class GoogleMap {
     centerMap () {
         this.map.panToBounds(this.bounds)
         this.map.fitBounds(this.bounds)
+    }
+
+    /**
+     * Zoom the map on marker.
+     * 
+     * @param { Marker } marker 
+     */
+    zoomMarker (marker) {
+        this.map.setCenter(marker.position)
+        this.map.setZoom(4)
     }
 
     /**
